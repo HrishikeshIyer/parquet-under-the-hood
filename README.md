@@ -1,6 +1,6 @@
 # Parquet Under the Hood
 
-This project is a byte-level teardown of the [Apache Parquet file format](https://parquet.apache.org/)]. 
+This project is a byte-level teardown of the [Apache Parquet file format](https://parquet.apache.org/). 
 There are 2 aspects to this project:
 1. Crafting a richly-typed Parquet file and its CSV equivalent, then understanding the structure of each.
 2. Comparing the efficiency and file sizes of the two formats by varying the number of rows. 
