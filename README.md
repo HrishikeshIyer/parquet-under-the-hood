@@ -86,5 +86,4 @@ column ~30×, but made high-cardinality columns (`sku`, random `payload`, sorted
 - The tiny file is written **uncompressed** and with a **single row group** so
   its bytes are readable in `od`/`xxd`.
 - Footer length is read directly from the file trailer (last 8 bytes =
-  `[len: uint32 LE][b"PAR1"]`), not via a library, so the "metadata overhead"
-  numbers are honest.
+  `[len: uint32 LE][b"PAR1"]`), not via a library, so not much of overhead.
