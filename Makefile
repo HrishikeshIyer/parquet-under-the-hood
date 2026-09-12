@@ -12,6 +12,8 @@ dump: tiny
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
+	uv run python scripts/bench_compression.py
+	uv run python scripts/bench_columns.py
 
 plots: bench
 	uv run python scripts/plot.py

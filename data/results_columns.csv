@@ -1,0 +1,13 @@
+column,arrow_type,dict_on_bytes,dict_off_bytes
+sku,string,4688208,4557276
+payload,binary,3461255,3190644
+event_ts,timestamp[us],3280390,3009666
+id,int32,2569677,2001748
+price,double,950057,2275811
+rating,"decimal128(4, 2)",565824,1001477
+discount,double,511661,1436560
+quantity,int64,378302,1003238
+city,string,189966,1210398
+event_date,date32[day],145316,176275
+in_stock,bool,63800,63800
+category,string,7478,226800
