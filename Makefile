@@ -9,6 +9,12 @@ tiny:
 dump: tiny
 	uv run python scripts/dump_footer.py data/tiny.parquet
 
+encoded:
+	uv run python scripts/gen_tiny_encoded_compressed.py
+
+contrast: tiny encoded
+	uv run python scripts/show_compression.py
+
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
