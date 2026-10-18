@@ -9,6 +9,27 @@ tiny:
 dump: tiny
 	uv run python scripts/dump_footer.py data/tiny.parquet
 
+encoded:
+	uv run python scripts/gen_tiny_encoded_compressed.py
+
+contrast: tiny encoded
+	uv run python scripts/show_compression.py
+
+decode-page: tiny
+	uv run python scripts/decode_page.py category
+
+trace-footer: tiny
+	uv run python scripts/dump_thrift.py trace data/tiny.parquet
+
+decode-footer: tiny
+	uv run python scripts/dump_thrift.py reconstruct data/tiny.parquet
+
+structure: tiny
+	uv run python scripts/structure.py data/tiny.parquet $(ARGS)
+
+structure-compressed: encoded
+	uv run python scripts/structure.py data/tiny_encoded_compressed.parquet $(ARGS)
+
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
