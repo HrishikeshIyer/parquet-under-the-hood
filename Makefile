@@ -15,6 +15,9 @@ encoded:
 contrast: tiny encoded
 	uv run python scripts/show_compression.py
 
+decode-page: tiny
+	uv run python scripts/decode_page.py category
+
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
