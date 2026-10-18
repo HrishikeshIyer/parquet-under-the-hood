@@ -1,4 +1,5 @@
 .PHONY: setup tiny dump bench plots all clean
+	big pages sample plots-part2 structure-big
 
 setup:
 	uv sync
@@ -29,6 +30,22 @@ structure: tiny
 
 structure-compressed: encoded
 	uv run python scripts/structure.py data/tiny_encoded_compressed.parquet $(ARGS)
+data/big.parquet: scripts/gen_big.py src/pqlab/data.py
+	uv run python scripts/gen_big.py
+
+big: data/big.parquet
+
+pages: data/big.parquet
+	uv run python scripts/page_stats.py data/big.parquet
+
+sample: data/big.parquet
+	uv run python scripts/sample_row.py $(ARGS)
+
+plots-part2: pages sample
+	uv run python scripts/plot_part2.py
+
+structure-big: data/big.parquet
+	uv run python scripts/structure.py data/big.parquet --row-group 0 --pages 2 --max 4 $(ARGS)
 
 bench:
 	uv run python scripts/bench_sizes.py

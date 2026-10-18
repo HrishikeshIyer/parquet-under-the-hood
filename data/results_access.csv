@@ -1,0 +1,4 @@
+access,row,csv_bytes,parquet_bytes
+one row,339563,107,2227591
+column price,339563,112709395,1942560
+column category,339563,112709395,15585
