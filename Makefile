@@ -18,6 +18,12 @@ contrast: tiny encoded
 decode-page: tiny
 	uv run python scripts/decode_page.py category
 
+trace-footer: tiny
+	uv run python scripts/dump_thrift.py trace data/tiny.parquet
+
+decode-footer: tiny
+	uv run python scripts/dump_thrift.py reconstruct data/tiny.parquet
+
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
