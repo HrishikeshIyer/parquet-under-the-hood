@@ -24,6 +24,12 @@ trace-footer: tiny
 decode-footer: tiny
 	uv run python scripts/dump_thrift.py reconstruct data/tiny.parquet
 
+structure: tiny
+	uv run python scripts/structure.py data/tiny.parquet $(ARGS)
+
+structure-compressed: encoded
+	uv run python scripts/structure.py data/tiny_encoded_compressed.parquet $(ARGS)
+
 bench:
 	uv run python scripts/bench_sizes.py
 	uv run python scripts/bench_rowgroups.py
